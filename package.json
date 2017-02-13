@@ -1,0 +1,28 @@
+{
+    "name": "bower-resolve-webpack-plugin",
+    "version": "1.0.0",
+    "description": "Offers an enhanced bower support for enhanced-resolve plugin.",
+    "main": "index.js",
+    "keywords": [
+        "bower",
+        "webpack",
+        "resolve",
+        "plugin"
+    ],
+    "author": "Linas Pašviestis",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/codewizz/bower-resolve-webpack-plugin/issues"
+    },
+    "homepage": "https://github.com/codewizz/bower-resolve-webpack-plugin#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/codewizz/bower-resolve-webpack-plugin.git"
+    },
+    "dependencies": {
+        "enhanced-resolve": "^3.1.0"
+    },
+    "peerDependencies": {
+        "webpack": "^2.2.0"
+    }
+}
