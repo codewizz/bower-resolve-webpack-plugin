@@ -7,6 +7,10 @@ module.exports = class BowerResolvePlugin {
 
     apply(resolver) {
         resolver.plugin('existing-directory', function (request, callback) {
+            if (request.path !== request.descriptionFileRoot) {
+                return callback();
+            }
+
             var mainModule = null;
 
             if (request.descriptionFilePath.endsWith('bower.json')) {
@@ -26,7 +30,7 @@ module.exports = class BowerResolvePlugin {
                 path: path.resolve(request.path, mainModule)
             });
 
-            return resolver.doResolve('file', obj, 'bower resolve: ' + mainModule, callback);
+            return resolver.doResolve('undescribed-raw-file', obj, 'using path: ' + mainModule, callback);
         });
     }
 }
