@@ -16,11 +16,9 @@ Add the plugin to your Webpack configuration:
 
   resolve: {
     plugins: [new BowerResolvePlugin()],
-    modules: [
-        'bower_components'
-    ],
-    descriptionFiles: ['bower.json', 'package.json'],
-    mainFields: ['main', 'browser']
+    modules: ['bower_components', 'node_modules'],
+    descriptionFiles: ['.bower.json', 'package.json'],
+    mainFields: ['browser', 'main']
   },
 ```
 
