@@ -1,6 +1,6 @@
 'use strict';
 
-var path = require('path');
+let path = require('path');
 
 module.exports = class BowerResolvePlugin {
     constructor(options) {
@@ -13,11 +13,11 @@ module.exports = class BowerResolvePlugin {
                 return callback();
             }
 
-            var mainModule = null;
-
+            let mainModule = null;
+            
             if (request.descriptionFilePath.endsWith('bower.json')) {
-                var source = request.descriptionFileData;
-                var modules = typeof source['main'] == 'string'
+                let source = request.descriptionFileData;
+                let modules = typeof source['main'] == 'string'
                     ? [source['main']]
                     : source['main'];
 
@@ -25,18 +25,18 @@ module.exports = class BowerResolvePlugin {
                     return callback();
                 }
 
-                mainModule = modules.find(module => { return module.endsWith('.js') });
+                mainModule = modules.find(module => module.endsWith('.js') );
             }
 
             if (! mainModule) {
                 return callback();
             }
 
-            var obj = Object.assign({}, request, {
+            let object = Object.assign({}, request, {
                 path: path.resolve(request.path, mainModule)
             });
 
-            return resolver.doResolve('undescribed-raw-file', obj, 'using path: ' + mainModule, callback);
+            return resolver.doResolve('undescribed-raw-file', object, 'using path: ' + mainModule, callback);
         });
     }
 }
