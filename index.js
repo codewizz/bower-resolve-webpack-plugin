@@ -21,6 +21,10 @@ module.exports = class BowerResolvePlugin {
                     ? [source['main']]
                     : source['main'];
 
+                if (! modules) {
+                    return callback();
+                }
+
                 mainModule = modules.find(module => { return module.endsWith('.js') });
             }
 
