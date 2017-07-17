@@ -1,6 +1,6 @@
 {
     "name": "bower-resolve-webpack-plugin",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Offers an enhanced bower support for enhanced-resolve plugin.",
     "main": "index.js",
     "keywords": [
@@ -23,6 +23,6 @@
         "enhanced-resolve": "^3.1.0"
     },
     "peerDependencies": {
-        "webpack": "^2.2.0"
+        "webpack": ">= 2.2.0"
     }
 }
