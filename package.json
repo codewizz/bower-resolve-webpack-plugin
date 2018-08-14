@@ -21,7 +21,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "enhanced-resolve": "^3.1.0",
+    "enhanced-resolve": ">= 3.1.0",
     "webpack": ">= 2.2.0"
   }
 }
