@@ -1,12 +1,21 @@
 'use strict';
 
-let path = require('path');
-const pluginName = "bower-resolve-webpack-plugin";
+const path = require('path');
+const pluginName = 'bower-resolve-webpack-plugin';
+
+const defaultOptions = {
+    extensions: ['.js']
+};
+
+function matchModule(filename, extensions) {
+    const ext = path.extname(filename);
+    return extensions.includes(ext);
+}
 
 module.exports = class BowerResolvePlugin {
     constructor(options) {
-        this.options = options;
-	}
+        this.options = Object.assign({}, defaultOptions, options);
+    }
 
     apply(resolver) {
         // Webpack 4
@@ -28,7 +37,7 @@ module.exports = class BowerResolvePlugin {
                         return callback();
                     }
 
-                    mainModule = modules.find(module => module.endsWith('.js'));
+                    mainModule = modules.find(module => matchModule(module, this.options.extensions));
                 }
 
                 if (!mainModule) {
@@ -60,7 +69,7 @@ module.exports = class BowerResolvePlugin {
                         return callback();
                     }
 
-                    mainModule = modules.find(module => module.endsWith('.js') );
+                    mainModule = modules.find(module => matchModule(module, this.options.extensions));
                 }
 
                 if (! mainModule) {
